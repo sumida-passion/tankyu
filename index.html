@@ -183,19 +183,33 @@ p{line-height:1.65;font-size:clamp(1rem,1.8vw,1.35rem)}
 }
 
 .edge{position:relative;text-align:center;overflow:hidden}
-.edge-inner{max-width:980px;margin:0 auto}
+.edge-inner{max-width:1040px;margin:0 auto;padding-top:6px}
 .edge h2{margin-bottom:4px}
-.door-wrap{width:175px;height:230px;margin:18px auto 8px;position:relative}
+.door-wrap{width:175px;height:230px;margin:14px auto 38px;position:relative}
 .door-sky{position:absolute;inset:10px 14px 8px;border-radius:76px 76px 8px 8px;background:radial-gradient(circle at 50% 18%, rgba(255,245,180,.95), transparent 20%),linear-gradient(180deg,#74cdfb 0%,#dff8ff 45%,#a3d97d 72%,#4c8f43 100%);opacity:0;transform:scale(.82);transition:1s ease;box-shadow:0 0 90px rgba(160,220,255,.9)}
 .door-sky.show{opacity:1;transform:scale(1)}
 .door{position:absolute;inset:0;border-radius:100px 100px 10px 10px;background:linear-gradient(90deg,#2a1408,#81491a,#2a1408);box-shadow:0 0 90px rgba(255,194,74,.72);transition:.8s ease;transform-origin:left center}
 .door.open{transform:perspective(500px) rotateY(-72deg);opacity:.72}
-.edge-btn{background:#13203c;color:#fff8ea;margin:4px auto 12px;display:inline-block}
-.edge-line{opacity:0;transform:translateY(16px);transition:.45s ease;font-size:clamp(.95rem,1.55vw,1.25rem);margin:5px 0;line-height:1.42}
+.edge-line{opacity:0;transform:translateY(16px);transition:.45s ease;font-size:clamp(1.15rem,1.75vw,1.85rem);font-weight:800;margin:10px 0;line-height:1.38}
 .edge-line.show{opacity:1;transform:translateY(0)}
-.dramatic{margin-top:8px;opacity:0;transform:scale(.96);transition:.6s ease;font-size:clamp(1.6rem,3.3vw,2.8rem);font-weight:900;color:#13203c;letter-spacing:.04em}
+.dramatic{margin-top:28px;opacity:0;transform:scale(.96);transition:.6s ease;font-size:clamp(2.4rem,4.3vw,4.8rem);font-weight:900;color:#13203c;letter-spacing:.04em}
 .dramatic.show{opacity:1;transform:scale(1)}
 .dramatic span{color:#b9802e}
+.edge-next{
+  position:absolute;
+  right:54px;
+  bottom:58px;
+  width:54px;
+  height:54px;
+  border-radius:50%;
+  border:2px solid #b9802e;
+  background:rgba(255,248,234,.88);
+  box-shadow:0 8px 20px rgba(0,0,0,.14);
+  cursor:pointer;
+  z-index:30;
+  padding:0;
+}
+.edge-next:hover{transform:scale(1.05)}
 
 /* role intro slide */
 .role-intro .card{padding:42px 48px 104px}
@@ -728,6 +742,79 @@ body::after{content:"";position:fixed;inset:0;z-index:-4;pointer-events:none;bac
   display:none!important;
 }
 
+
+
+/* ===== Edge slide button position fix v7 ===== */
+#edgeSlide .door-wrap{
+  cursor:default!important;
+}
+#edgeSlide .edge-next{
+  right:38px!important;
+  bottom:34px!important;
+  width:42px!important;
+  height:42px!important;
+  min-width:42px!important;
+  min-height:42px!important;
+  padding:0!important;
+  border-radius:50%!important;
+  border:2px solid #b9802e!important;
+  background:rgba(255,248,234,.9)!important;
+  box-shadow:0 6px 16px rgba(0,0,0,.16)!important;
+  z-index:80!important;
+}
+#edgeSlide .edge-next:hover{
+  transform:scale(1.06)!important;
+}
+@media(max-width:900px){
+  #edgeSlide .edge-next{
+    right:24px!important;
+    bottom:28px!important;
+    width:38px!important;
+    height:38px!important;
+    min-width:38px!important;
+    min-height:38px!important;
+  }
+}
+
+
+
+/* ===== Edge slide button position fix v8: direct child, card bottom-right ===== */
+#edgeSlide .card.edge{
+  position:relative!important;
+}
+#edgeSlide .card.edge > .edge-next{
+  position:absolute!important;
+  right:32px!important;
+  bottom:32px!important;
+  left:auto!important;
+  top:auto!important;
+  transform:none!important;
+  width:42px!important;
+  height:42px!important;
+  min-width:42px!important;
+  min-height:42px!important;
+  padding:0!important;
+  margin:0!important;
+  border-radius:50%!important;
+  border:2px solid #b9802e!important;
+  background:rgba(255,248,234,.92)!important;
+  box-shadow:0 6px 16px rgba(0,0,0,.16)!important;
+  z-index:300!important;
+}
+#edgeSlide .card.edge > .edge-next:hover{
+  transform:scale(1.06)!important;
+}
+@media(max-width:900px){
+  #edgeSlide .card.edge > .edge-next{
+    right:22px!important;
+    bottom:24px!important;
+    width:38px!important;
+    height:38px!important;
+    min-width:38px!important;
+    min-height:38px!important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -843,13 +930,14 @@ body::after{content:"";position:fixed;inset:0;z-index:-4;pointer-events:none;bac
     <div class="edge-inner">
       <p class="kicker">探究の核心</p>
       <h2>世界の端っこに立つ。</h2>
-      <div class="door-wrap" onclick="revealEdge()" aria-label="扉を開く"><div class="door-sky" id="doorSky"></div><div class="door" id="door"></div></div>
+      <div class="door-wrap" aria-label="扉"><div class="door-sky" id="doorSky"></div><div class="door" id="door"></div></div>
       <p class="edge-line">この研究における、世界の端にたどり着く。</p>
       <p class="edge-line">いま、この問いを一番深く考えているのは自分かもしれない。</p>
       <p class="edge-line">扉の向こうには、まだ誰も見たことのない答えがある。</p>
       <p class="edge-line">だから、人に伝えたくなる。協力者が生まれる。共感者が生まれる。</p>
       <div class="dramatic" id="dramaticWord">探究は、<span>人を動かす。</span></div>
     </div>
+    <button class="edge-next" onclick="revealEdge()" aria-label="次の言葉を表示"></button>
   </div>
 </section>
 
@@ -1029,7 +1117,6 @@ function revealVerify(){
 }
 
 function revealEdge(){
-  tapFlash();
   const lines=document.querySelectorAll("#edgeSlide .edge-line");
   document.getElementById("door").classList.add("open");
   document.getElementById("doorSky").classList.add("show");
