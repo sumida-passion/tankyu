@@ -48,7 +48,7 @@ p{line-height:1.65;font-size:clamp(1rem,1.8vw,1.35rem)}
 .hakken-message.show{opacity:1}
 .hakken-btn{position:absolute;right:80px;bottom:86px;background:#13203c;color:#fff8ea;z-index:11}
 
-/* NEW verification slide */
+/* verification slide */
 .verify-slide .card{padding:32px 44px 96px}
 .verify-stage{
   display:grid;
@@ -75,15 +75,12 @@ p{line-height:1.65;font-size:clamp(1rem,1.8vw,1.35rem)}
   object-fit:contain;
   display:block;
 }
-
-/* triangle mask layer: central circle stays visible, six sectors open one by one */
 .verify-mask{
   position:absolute;
   inset:0;
   pointer-events:none;
   z-index:5;
 }
-
 .mask-piece{
   position:absolute;
   left:0;
@@ -95,33 +92,14 @@ p{line-height:1.65;font-size:clamp(1rem,1.8vw,1.35rem)}
   transition:.55s ease;
   filter:drop-shadow(0 0 22px rgba(243,238,228,1));
 }
+.mask-expert{clip-path:polygon(38% 46%, 62% 46%, 76% -6%, 24% -6%)}
+.mask-facility{clip-path:polygon(51% 42%, 108% 5%, 108% 54%, 55% 57%)}
+.mask-literature{clip-path:polygon(54% 51%, 108% 42%, 108% 92%, 52% 64%)}
+.mask-tankyu{clip-path:polygon(37% 55%, 63% 55%, 82% 108%, 18% 108%)}
+.mask-money{clip-path:polygon(46% 50%, -8% 92%, -8% 42%, 42% 47%)}
+.mask-kensyo{clip-path:polygon(42% 42%, -8% 5%, -8% 54%, 46% 57%)}
+.mask-piece.hide{opacity:0;pointer-events:none}
 
-/* 放射状6分割。中心の仮説検証から外側へ伸びる扇形に近い三角形 */
-.mask-expert{
-  clip-path:polygon(38% 46%, 62% 46%, 76% -6%, 24% -6%);
-}
-.mask-facility{
-  clip-path:polygon(51% 42%, 108% 5%, 108% 54%, 55% 57%);
-}
-.mask-literature{
-  clip-path:polygon(54% 51%, 108% 42%, 108% 92%, 52% 64%);
-}
-.mask-tankyu{
-  clip-path:polygon(37% 55%, 63% 55%, 82% 108%, 18% 108%);
-}
-.mask-money{
-  clip-path:polygon(46% 50%, -8% 92%, -8% 42%, 42% 47%);
-}
-.mask-kensyo{
-  clip-path:polygon(42% 42%, -8% 5%, -8% 54%, 46% 57%);
-}
-
-.mask-piece.hide{
-  opacity:0;
-  pointer-events:none;
-}
-
-/* 隠し残りを埋める補助白レイヤー。三角マスクと同時に消える */
 .patch-piece{
   position:absolute;
   background:#f3eee4;
@@ -131,55 +109,13 @@ p{line-height:1.65;font-size:clamp(1rem,1.8vw,1.35rem)}
   transition:.55s ease;
   box-shadow:0 0 20px 18px rgba(243,238,228,1);
 }
-
-/* スクショで見えていた残りを狙って埋める */
-.patch-kensyo{
-  left:8%;
-  top:18%;
-  width:28%;
-  height:28%;
-  border-radius:42% 58% 55% 45%;
-}
-.patch-facility{
-  right:10%;
-  top:20%;
-  width:27%;
-  height:25%;
-  border-radius:48% 52% 50% 50%;
-}
-.patch-money{
-  left:4%;
-  top:49%;
-  width:30%;
-  height:28%;
-  border-radius:46% 54% 52% 48%;
-}
-.patch-literature{
-  right:5%;
-  top:50%;
-  width:31%;
-  height:29%;
-  border-radius:50%;
-}
-.patch-tankyu{
-  left:29%;
-  bottom:5%;
-  width:42%;
-  height:25%;
-  border-radius:48% 52% 44% 56%;
-}
-.patch-expert{
-  left:31%;
-  top:5%;
-  width:38%;
-  height:27%;
-  border-radius:46% 54% 50% 50%;
-}
-
-.patch-piece.hide{
-  opacity:0;
-  pointer-events:none;
-}
+.patch-kensyo{left:8%;top:18%;width:28%;height:28%;border-radius:42% 58% 55% 45%}
+.patch-facility{right:10%;top:20%;width:27%;height:25%;border-radius:48% 52% 50% 50%}
+.patch-money{left:4%;top:49%;width:30%;height:28%;border-radius:46% 54% 52% 48%}
+.patch-literature{right:5%;top:50%;width:31%;height:29%;border-radius:50%}
+.patch-tankyu{left:29%;bottom:5%;width:42%;height:25%;border-radius:48% 52% 44% 56%}
+.patch-expert{left:31%;top:5%;width:38%;height:27%;border-radius:46% 54% 50% 50%}
+.patch-piece.hide{opacity:0;pointer-events:none}
 
 .center-cover{
   position:absolute;
@@ -194,12 +130,7 @@ p{line-height:1.65;font-size:clamp(1rem,1.8vw,1.35rem)}
   transition:.55s ease;
   box-shadow:0 0 18px 14px rgba(243,238,228,1);
 }
-
-.center-cover.hide{
-  opacity:0;
-}
-
-
+.center-cover.hide{opacity:0}
 
 .verify-text{
   height:100%;
@@ -227,10 +158,7 @@ p{line-height:1.65;font-size:clamp(1rem,1.8vw,1.35rem)}
   transform:translateY(10px);
   transition:.35s ease;
 }
-.verify-current.show{
-  opacity:1;
-  transform:translateY(0);
-}
+.verify-current.show{opacity:1;transform:translateY(0)}
 .verify-final{
   margin-top:18px;
   background:#13203c;
@@ -269,13 +197,131 @@ p{line-height:1.65;font-size:clamp(1rem,1.8vw,1.35rem)}
 .dramatic.show{opacity:1;transform:scale(1)}
 .dramatic span{color:#b9802e}
 
+/* role intro slide */
+.role-intro .card{padding:42px 48px 104px}
+.role-intro-top{text-align:center}
+.role-intro-top h2{
+  font-size:clamp(2.8rem,5.1vw,5rem);
+  line-height:1.18;
+  margin-bottom:22px;
+}
+.role-intro-lead{
+  font-weight:800;
+  color:#13203c;
+  line-height:1.7;
+  margin:0 auto;
+}
+.role-intro-stage{
+  position:absolute;
+  left:48px;
+  right:48px;
+  bottom:96px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  align-items:end;
+}
+.intro-role-card{
+  position:relative;
+  min-height:190px;
+  background:#fffaf3;
+  border:2px solid #b9802e;
+  border-radius:24px;
+  padding:62px 24px 22px;
+  box-shadow:0 12px 28px rgba(0,0,0,.08);
+  opacity:0;
+  transform:translateY(34px) scale(.94);
+  filter:blur(5px);
+  transition:.65s ease;
+}
+.intro-role-card.show{
+  opacity:1;
+  transform:translateY(0) scale(1);
+  filter:blur(0);
+}
+.intro-role-icon{
+  position:absolute;
+  top:-54px;
+  left:50%;
+  transform:translateX(-50%);
+  width:108px;
+  height:108px;
+  border-radius:50%;
+  background:#fffaf3;
+  border:2px solid #b9802e;
+  box-shadow:0 10px 22px rgba(0,0,0,.14);
+}
+.intro-role-icon::before{
+  content:"";
+  position:absolute;
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  background:#13203c;
+  left:50%;
+  top:18px;
+  transform:translateX(-50%);
+}
+.intro-role-icon::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:17px;
+  transform:translateX(-50%);
+  width:58px;
+  height:43px;
+  background:#13203c;
+  clip-path:polygon(50% 0, 82% 100%, 18% 100%);
+}
+.intro-role-card:nth-child(2) .intro-role-icon::after{
+  clip-path:polygon(42% 0,58% 0,70% 100%,30% 100%);
+}
+.intro-role-card h3{
+  margin:0 0 14px;
+  font-size:clamp(1.25rem,1.8vw,1.75rem);
+  color:#13203c;
+}
+.intro-role-card p{
+  margin:0;
+  font-size:clamp(1rem,1.45vw,1.28rem);
+  line-height:1.65;
+  font-weight:700;
+}
+.role-intro-btn{
+  position:absolute;
+  left:50%;
+  bottom:28px;
+  transform:translateX(-50%);
+  background:#13203c;
+  color:#fff8ea;
+  z-index:20;
+}
+
 .role-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
 .role{background:#fffaf3;border:2px solid #b9802e;border-radius:20px;padding:18px}
 .role h3{color:#13203c;margin-bottom:8px}
 
 .staff-slide .card{padding:30px 42px 88px}
 .staff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:16px}
-.staff-card{position:relative;height:230px;background:#fffaf3;border:2px solid #b9802e;border-radius:24px;overflow:hidden;padding:18px 18px 18px 150px;box-shadow:0 10px 24px rgba(0,0,0,.08)}
+.staff-card{
+  position:relative;
+  height:230px;
+  background:#fffaf3;
+  border:2px solid #b9802e;
+  border-radius:24px;
+  overflow:hidden;
+  padding:18px 18px 18px 150px;
+  box-shadow:0 10px 24px rgba(0,0,0,.08);
+  opacity:0;
+  transform:translateY(30px) scale(.96);
+  filter:blur(5px);
+  transition:.65s ease;
+}
+.staff-card.show{
+  opacity:1;
+  transform:translateY(0) scale(1);
+  filter:blur(0);
+}
 .staff-card img{position:absolute;left:-10px;bottom:-8px;width:155px;height:220px;object-fit:contain;object-position:bottom left}
 .staff-card.sumida img{width:170px;height:230px;left:-18px}
 .staff-card.okamoto img{width:160px;height:230px;left:-18px}
@@ -307,6 +353,9 @@ button{border:none;border-radius:999px;padding:13px 25px;background:#fff6e2;colo
   .verify-imagebox{max-width:420px}
   .verify-text h2{font-size:2.6rem}
   .verify-current{font-size:1.45rem;min-height:110px}
+  .role-intro .card{padding:28px 22px 96px}
+  .role-intro-stage{position:relative;left:auto;right:auto;bottom:auto;grid-template-columns:1fr;margin-top:72px;gap:70px}
+  .intro-role-card{min-height:170px}
   .staff-card{height:220px;padding-left:145px}
 }
 </style>
@@ -431,23 +480,35 @@ button{border:none;border-radius:999px;padding:13px 25px;background:#fff6e2;colo
   </div>
 </section>
 
-<section class="slide">
-  <div class="card center">
-    <p class="kicker">3つの役割が揃う</p>
-    <h2>奈良文化高校には、<br>その旅を支える大人がいます。</h2>
-    <p>想いの翻訳者として。問いの伴走者として。<br>そして、ともに探究する者として。</p>
-  </div>
-</section>
-
-<section class="slide">
+<section class="slide role-intro" id="roleIntroSlide">
   <div class="card">
-    <p class="kicker">3つの役割</p>
-    <h2>探究の旅を支える大人。</h2>
-    <div class="role-grid">
-      <div class="role"><h3>問いの伴走者</h3><p>答えがない場所まで辿り着くために。</p></div>
-      <div class="role"><h3>想いの翻訳者</h3><p>“なりたい自分”を見失わないように、自分に問いかけるお手伝いをする人。</p></div>
-      <div class="role"><h3>ともに探究する者</h3><p>仮説を検証するために、現実の方法を一緒に考える人。</p></div>
+    <div class="role-intro-top">
+      <p class="kicker">3つの役割が揃う</p>
+      <h2>奈良文化高校には、<br>その旅を支える大人がいます。</h2>
+      <p class="role-intro-lead">想いの翻訳者として。問いの伴走者として。<br>そして、ともに探究する者として。</p>
     </div>
+
+    <div class="role-intro-stage">
+      <div class="intro-role-card">
+        <div class="intro-role-icon"></div>
+        <h3>問いの伴走者</h3>
+        <p>答えがない場所まで辿り着くために。</p>
+      </div>
+
+      <div class="intro-role-card">
+        <div class="intro-role-icon"></div>
+        <h3>想いの翻訳者</h3>
+        <p>“なりたい自分”を見失わないように、自分に問いかけるお手伝いをする人。</p>
+      </div>
+
+      <div class="intro-role-card">
+        <div class="intro-role-icon"></div>
+        <h3>ともに探究する者</h3>
+        <p>仮説を検証するために、現実の方法を一緒に考える人。</p>
+      </div>
+    </div>
+
+    <button class="role-intro-btn" onclick="revealRoleIntro()">3つの役割を見る</button>
   </div>
 </section>
 
@@ -471,7 +532,7 @@ button{border:none;border-radius:999px;padding:13px 25px;background:#fff6e2;colo
 
 <script>
 const slides=document.querySelectorAll(".slide");
-let current=0,whyIndex=0,hakkenIndex=0,verifyIndex=0,edgeIndex=0;
+let current=0,whyIndex=0,hakkenIndex=0,verifyIndex=0,edgeIndex=0,roleIntroIndex=0,staffIndex=0;
 
 function showSlide(index){
   slides[current].classList.remove("active");
@@ -479,7 +540,17 @@ function showSlide(index){
   slides[current].classList.add("active");
   document.getElementById("count").textContent=`${current+1} / ${slides.length}`;
 }
-function nextSlide(){showSlide(current+1)}
+function nextSlide(){
+  if(slides[current].id==="roleIntroSlide"){
+    const cards=document.querySelectorAll("#roleIntroSlide .intro-role-card");
+    if(roleIntroIndex<cards.length){revealRoleIntro();return}
+  }
+  if(slides[current].classList.contains("staff-slide")){
+    const cards=document.querySelectorAll(".staff-slide .staff-card");
+    if(staffIndex<cards.length){revealStaff();return}
+  }
+  showSlide(current+1);
+}
 function prevSlide(){showSlide(current-1)}
 
 function revealWhy(){
@@ -515,7 +586,7 @@ function revealVerify(){
     if(mask) mask.classList.add("hide");
     if(patch) patch.classList.add("hide");
 
-    if(current===0){
+    if(verifyIndex===0){
       const center=document.getElementById("centerCover");
       if(center) center.classList.add("hide");
     }
@@ -539,6 +610,24 @@ function revealEdge(){
   else{document.getElementById("dramaticWord").classList.add("show")}
 }
 
+function revealRoleIntro(){
+  const cards=document.querySelectorAll("#roleIntroSlide .intro-role-card");
+  if(roleIntroIndex<cards.length){
+    cards[roleIntroIndex].classList.add("show");
+    roleIntroIndex++;
+  }else{
+    showSlide(current+1);
+  }
+}
+
+function revealStaff(){
+  const cards=document.querySelectorAll(".staff-slide .staff-card");
+  if(staffIndex<cards.length){
+    cards[staffIndex].classList.add("show");
+    staffIndex++;
+  }
+}
+
 document.addEventListener("keydown",e=>{
   if(e.key==="ArrowRight")nextSlide();
   if(e.key==="ArrowLeft")prevSlide();
@@ -547,6 +636,8 @@ document.addEventListener("keydown",e=>{
     else if(slides[current].id==="hypoSlide")revealHakken();
     else if(slides[current].id==="verifySlide")revealVerify();
     else if(slides[current].id==="edgeSlide")revealEdge();
+    else if(slides[current].id==="roleIntroSlide")revealRoleIntro();
+    else if(slides[current].classList.contains("staff-slide"))revealStaff();
     else nextSlide();
   }
 });
